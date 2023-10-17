@@ -1,5 +1,6 @@
 <template>
-      <main class="main">
+  <div class="page">
+    <main class="main">
         <div class="container">
           <div class="laptop">
             <div class="sections">
@@ -237,6 +238,7 @@
           </div>
         </div>
       </main>
+  </div>
 </template>
 
 <script setup>
