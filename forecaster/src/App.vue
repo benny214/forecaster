@@ -7,7 +7,11 @@
             <section class="section section-left">
               <div class="info">
                 <div class="city-inner">
-                  <input type="text" class="search" />
+                  <input 
+                    v-model="city"
+                    @keyup.enter="getWeather" 
+                    type="text" 
+                    class="search" />
                 </div>
                 <WeatherSummary/>
               </div>
@@ -77,8 +81,21 @@
 </template>
 
 <script setup>
+import { ref, onMounted} from 'vue'
 import WeatherSummary from './components/WeatherSummary.vue';
 import Highlights from './components/HighLights.vue';
+import { API_KEY, BASE_URL } from './constants'
+
+const city = ref('Moscow')
+const weatherImfo = ref(null)
+
+function getWeather() {
+  fetch(`${BASE_URL}?q=${city.value}&appid=${API_KEY}`)
+   .then((response) => response.json())
+   .then((data) => weatherInfo.value = data)
+}
+
+onMounted(getWeather)
 </script>
 
 <style scoped lang="scss">
