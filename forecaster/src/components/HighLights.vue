@@ -1,5 +1,5 @@
 <template>
-  <div v-if="weatherInfo" class="highlights-wrapper">
+  <div class="highlights-wrapper">
     <div class="highlight">
       <div class="card">
         <div class="card-title">Wind</div>
