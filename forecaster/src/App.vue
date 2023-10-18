@@ -13,7 +13,7 @@
                     type="text" 
                     class="search" />
                 </div>
-                <WeatherSummary/>
+                <WeatherSummary :weatherInfo="weatherInfo"/>
               </div>
             </section>
             <section class="section section-right">
@@ -87,10 +87,10 @@ import Highlights from './components/HighLights.vue';
 import { API_KEY, BASE_URL } from './constants'
 
 const city = ref('Moscow')
-const weatherImfo = ref(null)
+const weatherInfo = ref(null)
 
 function getWeather() {
-  fetch(`${BASE_URL}?q=${city.value}&appid=${API_KEY}`)
+  fetch(`${BASE_URL}?q=${city.value}&units=metric&appid=${API_KEY}`)
    .then((response) => response.json())
    .then((data) => weatherInfo.value = data)
 }
